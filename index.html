@@ -30,65 +30,65 @@
 
 <body>
   <div class="container">
-    <h1>Pennies by State</h1>
-    <p><em><a href="https://docs.google.com/a/github.com/spreadsheet/ccc?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc&usp=drive_web#gid=0" target="_blank">spreadsheet</a></em></p>
-    <div id="pennies"></div>
-    <p><em><a onClick='window.location="view-source:" + window.location.href'>View Source</a> // <a href="../docs/sheetsee-charts.html">View Documentation</a></em></p>
-
-    <footer>
-      <h4 id="getting-started">Getting Started</h4>
-      <ul>
-        <li><a href="../docs/about.html">About Sheetsee</a></li>
-        <li><a href="../docs/building.html">Building Sheetsee</a></li>
-        <li><a href="../docs/basics.html">Basics</a></li>
-      </ul>
-      <h4 id="ideas">Ideas</h4>
-      <ul>
-        <li><a href="../docs/fork-n-go.html">Fork-n-Go</a></li>
-        <li><a href="../docs/tips.html">Tips!</a></li>
-        <li><a href="../docs/custom-charts.html">Custom charts</a></li>
-      </ul>
-      <h4>Demos</h4>
-      <ul>
-        <li><a href="./demo-table.html">Table Demo</a></li>
-        <li><a href="./demo-map.html">Map Demo</a></li>
-        <li><a href="./demo-chart.html">Chart Demo</a></li>
-      </ul>
-      <h4 id="use">Use</h4>
-      <ul>
-        <li><a href="../docs/sheetsee-core.html">Sheetsee-core</a></li>
-        <li><a href="../docs/sheetsee-tables.html">Sheetsee-tables</a></li>
-        <li><a href="../docs/sheetsee-maps.html">Sheetsee-maps</a></li>
-        <li><a href="../docs/sheetsee-charts.html">Sheetsee-charts</a></li>
-      </ul>
-      <h4 id="use">Contact</h4>
-      <ul>
-        <li><a href="http://www.twitter.com/jllord">@jllord</a></li>
-        <li><a href="https://github.com/jlord/sheetsee.js/issues/new">File an issue</a></li>
-      </ul>
-      <h4><a href="http://jlord.github.io/sheetsee.js">Home Page</a></h4>
-    </footer>
+    <h1>Read deez</h1>
+    <p><em><a href="https://docs.google.com/spreadsheets/d/14gOabjR5CkvmMBvsmlhWsQcfIvePB7m9jbrAX8niHlk/pubhtml" target="_blank">spreadsheet</a></em></p>
+    <div id="articlesTable"></div>
   </div>
+
+  <script id="articlesTable" type="text/html">
+		<table>
+		<tr>
+      <th class="tHeader">Added by</th>
+      <th class="tHeader">Title</th>
+      <th class="tHeader">Author</th>
+      <th class="tHeader">Date Published</th>
+      <th class="tHeader">Company</th>
+      <th class="tHeader">Tag</th>
+      <th class="tHeader">URL</th></tr>
+		  {{#rows}}
+		  	<tr class="spotRow">
+          <td>{{addedby}}</td>
+          <td>{{title}}</td>
+          <td>{{author}}</td>
+          <td>{{datepublished}}</td>
+          <td>{{company}}</td>
+          <td>{{tag}}</td>
+		  	  <td><a href="{{url}}">{{url}}</a></td>
+        </tr>
+		  {{/rows}}
+	  </table>
+	</script>
 
   <script type="text/javascript">
    document.addEventListener('DOMContentLoaded', function() {
-   	var URL = "0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc"
+   	var URL = "14gOabjR5CkvmMBvsmlhWsQcfIvePB7m9jbrAX8niHlk"
   		Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
   	})
 
     function showInfo(data) {
-      var cali = Sheetsee.getOccurance(data, "state")
-      var colors = ['#ff00ff', '#acacac']
-      var caliData = Sheetsee.makeColorArrayOfObject(cali, colors)
-      var lineOptions = { units: "units",
-                          labels: "undefined",
-                          m: [80, 100, 120, 100],
-                          w: 800, h: 400,
-                          div: "#pennies",
-                          yaxis: "pennies",
-                          hiColor: "#E4EB29"
-                        }
-      Sheetsee.d3LineChart(caliData, lineOptions)
+
+    	var tableOptions = {
+          "data": data, 
+          "pagination": 25, 
+          "tableDiv": "#articlesTable"
+        }
+
+	  	// make the table, and the search bar
+	  	Sheetsee.makeTable(tableOptions
+	  		)
+
+      // var cali = Sheetsee.getOccurance(data, "state")
+      // var colors = ['#ff00ff', '#acacac']
+      // var caliData = Sheetsee.makeColorArrayOfObject(cali, colors)
+      // var lineOptions = { units: "units",
+      //                     labels: "undefined",
+      //                     m: [80, 100, 120, 100],
+      //                     w: 800, h: 400,
+      //                     div: "#pennies",
+      //                     yaxis: "pennies",
+      //                     hiColor: "#E4EB29"
+      //                   }
+      // Sheetsee.d3LineChart(caliData, lineOptions)
     }
   </script>
 
