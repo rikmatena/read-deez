@@ -12,50 +12,47 @@
 
 
     <link rel='stylesheet' type='text/css' href='../read-dis/assets/css/main.css'>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   </head>
 
-  <style>
-    p {font-family: Baskerville, Libre Baskerville, Georgia, serif;}
-    #pennies.axis {shape-rendering: crispEdges;}
-    #pennies.x.axis .minor, #pennies.y.axis .minor {stroke-opacity: .5;}
-    #pennies.x.axis {stroke-opacity: 1;}
-    #pennies.y.axis line, #pennies.y.axis path, #pennies.x.axis path {fill: none; stroke: #acacac; stroke-width: 1;}
-    #pennies .x.axis line {stroke: #acacac; stroke-opacity: .75;}
-    .bigg {-webkit-transition: all .2s ease-in-out; -webkit-transform: scale(2);}
-    path.chartLine {stroke: #14ECC8; stroke-width: 3; fill: none;}
-    #pennies div.tooltip {position: absolute; text-align: left; padding: 4px 8px; width: auto; font-size: 10px; height: auto; background: #fff; border: 0px; pointer-events: none; font-family: Helvetica, Arial, sans-serif;}
-    circle {fill: #fff; cursor: pointer;}
-    path.domain {fill: #CCF4FF;}
-  </style>
-
 <body>
+
   <div class="container">
-    <h1>Read deez</h1>
-    <p><em><a href="https://docs.google.com/spreadsheets/d/14gOabjR5CkvmMBvsmlhWsQcfIvePB7m9jbrAX8niHlk/pubhtml" target="_blank">spreadsheet</a></em></p>
-    <div id="articlesTable"></div>
+    <div class="row">
+
+      <h1>Read deez</h1>
+      <p>
+        <em><a href="https://docs.google.com/a/springest.com/spreadsheets/d/14gOabjR5CkvmMBvsmlhWsQcfIvePB7m9jbrAX8niHlk/edit#gid=0">Spreadsheet with data</a></em>
+      </p>
+
+       <div class="col-md-12">
+         <div id="articlesTable"></div>
+       </div>
+
+
+    </div>
   </div>
 
   <script id="articlesTable" type="text/html">
-		<table>
-		<tr>
-      <th class="tHeader">Added by</th>
-      <th class="tHeader">Title</th>
+		<table class="table table-striped table-hover">
+		<tr class="info">
+      <th class="tHeader">Article</th>
       <th class="tHeader">Author</th>
       <th class="tHeader">Date Published</th>
       <th class="tHeader">Company</th>
       <th class="tHeader">Tag</th>
-      <th class="tHeader">URL</th></tr>
-		  {{#rows}}
-		  	<tr class="spotRow">
-          <td>{{addedby}}</td>
-          <td>{{title}}</td>
-          <td>{{author}}</td>
-          <td>{{datepublished}}</td>
-          <td>{{company}}</td>
-          <td>{{tag}}</td>
-		  	  <td><a href="{{url}}">{{url}}</a></td>
-        </tr>
-		  {{/rows}}
+      <th class="tHeader">Added by</th>
+    </tr>
+	  {{#rows}}
+	  	<tr class="spotRow">
+        <td><a href="{{url}}" target="_blank">{{title}}</a></td>
+        <td>{{author}}</td>
+        <td>{{datepublished}}</td>
+        <td>{{company}}</td>
+        <td>{{tag}}</td>
+        <td>{{addedby}}</td>
+      </tr>
+	  {{/rows}}
 	  </table>
 	</script>
 
