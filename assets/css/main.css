@@ -1,3 +1,12 @@
+.top {
+	height: 400px;
+	background: url("../images/bg-forest.jpg") bottom center no-repeat;
+	-webkit-background-size: cover;
+       -moz-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+}
+
 #articlesTable th,
 #articlesTable td {
 	padding: 5px 10px;
