@@ -24420,7 +24420,6 @@ function makeTable(opts, filteredList) {
   
   if (filteredList) var data = filteredList
     else var data = opts.data
-  console.log(opts)
   var tableId = opts.tableDiv.slice(1)
   if (!opts.pagination) table(data, opts.targetDiv)
   var allRows = data.length
