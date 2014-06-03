@@ -7,6 +7,19 @@
             background-size: cover;
 }
 
+.top .page-header {
+	padding-top: 100px;
+}
+
+.top .page-header h1 {
+	font-size: 60pt;
+	color: white;
+}
+
+.top .page-header small {
+	color: rgb(255, 183, 149);
+}
+
 #articlesTable th,
 #articlesTable td {
 	padding: 5px 10px;
